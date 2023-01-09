@@ -1,9 +1,16 @@
 
-//Group Name: CHHUN Pichpisal (ID:20180149)
+//Group Name: HUT Hokkey      (ID:e20180335)
 //            HAK Menghour    (ID:e20180239)
-//            HUT Hokkey      (ID:e20180335)
+//            CHHUN Pichpisal (ID:20180149)
 //______________________________________________
-
+//             TP1
+// 1, create the following task:
+//    a. ButtonTask : handle button debounce and states using simple delay b, vLITask: blink L1 at the rate of 100ms
+//    c. vL2Task: blink L2 at the rate of 500ms
+// 2, Modify the code for the following function:
+//   a. Long press B1 to delete/create vLITask.
+//   b, Press B2 to decrease L2 blink rate by 100ms. Reset back to 500ms when blink rate is equal to 0.
+//_____________________________________________
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>

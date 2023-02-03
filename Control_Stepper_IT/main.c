@@ -9,7 +9,6 @@
 #include "driver/timer.h"
 #include "esp_timer.h"
 
-
 /* Use project configuration menu (idf.py menuconfig) to choose the GPIO to blink,
    or you can edit the following line and set a number here.
 */
@@ -54,7 +53,6 @@ static void IRAM_ATTR timer_isr(void *para)   // callback fountion -> base on GP
            timer_group_clr_intr_status_in_isr(TIMER_GROUP_0, TIMER_1);
        }
        timer_group_enable_alarm_in_isr(TIMER_GROUP_0, TIMER_ID);// might have to reset alarm enable everytime interrupt triggers?( to be confirmed)
-
 }
 void TIM_Init(void){
     timer_config_t config = {
@@ -76,8 +74,6 @@ void TIM_Init(void){
     timer_isr_register(TIMER_GROUP, TIMER_ID, timer_isr, NULL, ESP_INTR_FLAG_IRAM, NULL);
     timer_start(TIMER_GROUP, TIMER_ID); //start timer
 }
-
-
 void set_timer_frequency(int frequency)
 {
     timer_pause(TIMER_GROUP, TIMER_ID);
@@ -86,8 +82,6 @@ void set_timer_frequency(int frequency)
     timer_enable_intr(TIMER_GROUP, TIMER_ID);
     timer_start(TIMER_GROUP, TIMER_ID);
 }
-
-
 void app_main(void)
 {
 //  esp_timer_init();
@@ -97,12 +91,5 @@ void app_main(void)
     set_timer_frequency(100);
     STEP_Init();
 
-//    vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
-//    while (1) {
-//        ESP_LOGI(TAG, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
-//        blink_led();
-//        /* Toggle the LED state */
-//        s_led_state = !s_led_state;
-//        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
     }
-//}
+

@@ -9,7 +9,6 @@
 #include "driver/timer.h"
 #include "esp_timer.h"
 
-
 /* Use project configuration menu (idf.py menuconfig) to choose the GPIO to blink,
    or you can edit the following line and set a number here.
 */
@@ -71,12 +70,11 @@ void TIM_Init(void){
     timer_set_counter_value(TIMER_GROUP, TIMER_ID, 0x00000000ULL);
     timer_set_alarm_value(TIMER_GROUP, TIMER_ID, TIMER_SCALE);
     timer_enable_intr(TIMER_GROUP, TIMER_ID);
-//
+
 //    timer_isr_callback_add(TIMER_GROUP, TIMER_ID, timer_isr, NULL, 0);
     timer_isr_register(TIMER_GROUP, TIMER_ID, timer_isr, NULL, ESP_INTR_FLAG_IRAM, NULL);
     timer_start(TIMER_GROUP, TIMER_ID); //start timer
 }
-
 
 void set_timer_frequency(int frequency)
 {
@@ -87,22 +85,11 @@ void set_timer_frequency(int frequency)
     timer_start(TIMER_GROUP, TIMER_ID);
 }
 
-
 void app_main(void)
 {
-//  esp_timer_init();
-    /* Configure the peripheral according to the LED type */
-//    configure_led();
     TIM_Init();
     set_timer_frequency(100);
     STEP_Init();
 
-//    vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
-//    while (1) {
-//        ESP_LOGI(TAG, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
-//        blink_led();
-//        /* Toggle the LED state */
-//        s_led_state = !s_led_state;
-//        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
     }
-//}
+

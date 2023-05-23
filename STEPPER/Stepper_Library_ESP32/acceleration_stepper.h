@@ -2,7 +2,7 @@
  * Acceleration_STEPPER.h
  *
  *  Created on: Jan 19, 2023
- *      Author: HUT HOKKEY
+ *      Author: HUT HOKKEY x THAI PHANNY
  *      This Library is base on AVR446: Linear speed control of stepper motor
  *      Document link
  *      https://ww1.microchip.com/downloads/en/Appnotes/doc8017.pdf
